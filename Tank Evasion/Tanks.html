@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tanks</title>
+    <div class="header">
+        <h1>Tank Evasion</h1>
+        <h2>W = Forward, A & D = directions, SPACEBAR = Fire</h2>
+    </div>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background: #666633;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        canvas {
+            border: 1px solid white;
+            background-image: url("Assets/background.png");
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        h2 {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="800" height="800" id="canvas"></canvas>
+    <script src="Tanks.js"></script>
+</body>
+
+</html>

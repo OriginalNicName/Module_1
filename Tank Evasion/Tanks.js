@@ -94,8 +94,15 @@ function manageInput() {
     if (tank.speed < tank.maxSpeed) {
       tank.speed += tank.accel
     }
-
   }
+  
+  //back key - s
+  if (keys[83]) {
+    if (tank.speed > -tank.maxSpeed) {
+      tank.speed -= tank.accel
+    }
+  }
+  
   //left key - a
   if (keys[65]) {
     tank.angle -= 2;
@@ -213,6 +220,9 @@ function manageCollisions() {
 function restoreMissile(missile) {
   missile.inFlight = false;
   missile.speed = 0;
+  missile.x = tank.x;
+  missile.y = tank.y;
+  missile.angle = tank.angle;
 }
 
 function manageMovement() {
@@ -222,9 +232,7 @@ function manageMovement() {
     rads = deg2Rads(obj.angle)
 
     if (obj.id == MISSILE && !obj.inFlight) {
-      obj.x = tank.x;
-      obj.y = tank.y;
-      obj.angle = tank.angle;
+      restoreMissile(obj);
     }
 
     obj.speed *= obj.drag;
